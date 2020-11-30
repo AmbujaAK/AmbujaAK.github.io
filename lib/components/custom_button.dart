@@ -20,12 +20,13 @@ class _CustomButtonState extends State<CustomButton> {
             widget.title,
             style: TextStyle(
               color: Colors.white,
+              fontWeight: FontWeight.bold,
             ),
           ),
         ),
         decoration: BoxDecoration(
           color: Colors.blueAccent,
-          borderRadius: BorderRadius.circular(24.0),
+          borderRadius: BorderRadius.circular(8.0),
           boxShadow: [
             BoxShadow(
               color: Colors.grey,
