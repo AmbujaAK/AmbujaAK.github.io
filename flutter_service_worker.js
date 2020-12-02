@@ -3,18 +3,18 @@ const MANIFEST = 'flutter-app-manifest';
 const TEMP = 'flutter-temp-cache';
 const CACHE_NAME = 'flutter-app-cache';
 const RESOURCES = {
-  "index.html": "744a4ff9ca2c46287d43e8b64d79f451",
-"/": "744a4ff9ca2c46287d43e8b64d79f451",
+  "index.html": "4d7c0a8e3cd70d80abd714a24e276e51",
+"/": "4d7c0a8e3cd70d80abd714a24e276e51",
 "assets/packages/cupertino_icons/assets/CupertinoIcons.ttf": "b14fcf3ee94e3ace300b192e9e7c8c5d",
 "assets/fonts/MaterialIcons-Regular.otf": "1288c9e28052e028aba623321f7826ac",
 "assets/assets/images/ambuja.jpg": "d9e6b44901f6d98248974bb9d43ef194",
 "assets/assets/images/home-right.png": "50953027678f2e493ea34b63733f26cd",
 "assets/AssetManifest.json": "679c48c51d01e4fc79b71c95f9a1688a",
 "assets/FontManifest.json": "dc3d03800ccca4601324923c0b1d6d57",
-"assets/NOTICES": "2ed220557167d5ff55b68864f4e73074",
+"assets/NOTICES": "87da860c32d635ffff9daa4ae8b12441",
 "icons/Icon-192.png": "ac9a721a12bbc803b44f645561ecb1e1",
 "icons/Icon-512.png": "96e752610906ba2a93c65f8abe1645f1",
-"main.dart.js": "07481839827389c3af46fd11ed5c9179",
+"main.dart.js": "33292d86395b1343247c49629b4a7e60",
 "favicon.png": "5dcef449791fa27946b3d35ad8803796",
 "version.json": "9f4c1649ebd6c18f9a6e9fe0333cd841",
 "manifest.json": "e5aaa4a5fa6f38e68aed54f70d84dba9"
