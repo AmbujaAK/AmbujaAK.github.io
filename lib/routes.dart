@@ -8,5 +8,5 @@ import 'package:my_personal_website/portfolio/app.dart';
 Map<String, Widget Function(BuildContext)> kRoutes = {
   HomePage.id: (context) => HomePage(),
   AboutPage.id: (context) => AboutPage(),
-  PortfolioPage.id: (context) => PortfolioPage()
+  PortfolioPage.id: (context) => PortfolioPage(),
 };
