@@ -9,8 +9,53 @@ import 'dart:io' show Platform;
 
 import 'package:url_launcher/url_launcher.dart';
 
-class PortfolioPage extends StatelessWidget {
+class PortfolioPage extends StatefulWidget {
   static const String id = 'portfolio';
+
+  @override
+  _PortfolioPageState createState() => _PortfolioPageState();
+}
+
+class _PortfolioPageState extends State<PortfolioPage> {
+  String activeType;
+  bool isActive;
+
+  @override
+  void initState() {
+    super.initState();
+
+    activeType = 'all';
+    isActive = true;
+  }
+
+  void _changeType(String type) {
+    switch (type) {
+      case 'flutter':
+        setState(() {
+          isActive = true;
+          activeType = 'flutter';
+        });
+        break;
+      case 'react':
+        setState(() {
+          isActive = true;
+          activeType = 'react';
+        });
+        break;
+      case 'angular':
+        setState(() {
+          isActive = true;
+          activeType = 'angular';
+        });
+        break;
+      default:
+        setState(() {
+          isActive = true;
+          activeType = 'all';
+        });
+        break;
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -18,7 +63,42 @@ class PortfolioPage extends StatelessWidget {
       appBar: CustomAppBar(
         preferredSize: Size(double.infinity, 100.0),
       ),
-      body: getBody(context),
+      body: Column(
+        children: [
+          Expanded(
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                RaisedButton(
+                  color: isActive ? Colors.amberAccent : Colors.amber[100],
+                  onPressed: () => Text('A'),
+                  child: Text('All'),
+                ),
+                RaisedButton(
+                  color: isActive ? Colors.amberAccent : Colors.amber[100],
+                  onPressed: () => Text('A'),
+                  child: Text('Flutter'),
+                ),
+                RaisedButton(
+                  color: isActive ? Colors.amberAccent : Colors.amber[100],
+                  onPressed: () => Text('A'),
+                  child: Text('React'),
+                ),
+                RaisedButton(
+                  color: isActive ? Colors.amberAccent : Colors.amber[100],
+                  onPressed: () => Text('A'),
+                  child: Text('Angular'),
+                ),
+              ],
+            ),
+          ),
+          Expanded(
+              child: Padding(
+            padding: const EdgeInsets.only(left: 48, right: 48),
+            child: getBody(context),
+          )),
+        ],
+      ),
     );
   }
 }
@@ -41,7 +121,7 @@ Widget bodyForAndroid(BuildContext context) {
   return ListView.builder(
     itemCount: projectItemList.getProjectItemList.length,
     itemBuilder: (context, index) => ProjectItem(
-      title: projectItemList.getProjectItemList[index],
+      title: projectItemList.getProjectItemList[index]['app'],
       color: Colors.blueGrey[600],
       onTap: () async {
         var url = '$kBaseUrl/${projectItemList.getProjectItemList[index]}';
@@ -63,7 +143,7 @@ Widget bodyForWeb(BuildContext context) {
   return GridView.builder(
     itemCount: projectItemList.getProjectItemList.length,
     itemBuilder: (context, index) => ProjectItem(
-      title: projectItemList.getProjectItemList[index],
+      title: projectItemList.getProjectItemList[index]['app'],
       color: Colors.blueGrey[200],
       onTap: () async {
         var url = '$kBaseUrl/${projectItemList.getProjectItemList[index]}';
