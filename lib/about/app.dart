@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:my_personal_website/about/about_avatar.dart';
 import 'package:my_personal_website/appbar/custom_app_bar.dart';
+import 'package:my_personal_website/home/home_avatar.dart';
+import 'package:my_personal_website/home/home_intro.dart';
 
 class AboutPage extends StatelessWidget {
   static const String id = 'about';
@@ -22,11 +25,7 @@ class AboutPage extends StatelessWidget {
               padding: EdgeInsets.all(64),
               child: Row(
                 children: [
-                  Container(
-                    child: Center(
-                      child: Text('About page'),
-                    ),
-                  )
+                  AboutAvatar(),
                 ],
               ),
             ),
