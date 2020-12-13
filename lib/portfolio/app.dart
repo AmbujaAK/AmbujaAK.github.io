@@ -16,7 +16,7 @@ class PortfolioPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: CustomAppBar(
-        preferredSize: Size(double.infinity, 100.0),
+        preferredSize: Size(double.infinity, 104.0),
       ),
       body: getBody(context),
     );
@@ -62,18 +62,21 @@ Widget bodyForWeb(BuildContext context) {
 
   return GridView.builder(
     itemCount: projectItemList.getProjectItemList.length,
-    itemBuilder: (context, index) => ProjectItem(
-      title: projectItemList.getProjectItemList[index],
-      color: Colors.blueGrey[200],
-      onTap: () async {
-        var url = '$kBaseUrl/${projectItemList.getProjectItemList[index]}';
-        print(url);
-        if (await canLaunch(url)) {
-          await launch(url);
-        } else {
-          throw 'Could not launch $url';
-        }
-      },
+    itemBuilder: (context, index) => Padding(
+      padding: const EdgeInsets.all(4.0),
+      child: ProjectItem(
+        title: projectItemList.getProjectItemList[index],
+        // color: Colors.blueGrey[200],
+        onTap: () async {
+          var url = '$kBaseUrl/${projectItemList.getProjectItemList[index]}';
+          print(url);
+          if (await canLaunch(url)) {
+            await launch(url);
+          } else {
+            throw 'Could not launch $url';
+          }
+        },
+      ),
     ),
     gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 5),
   );

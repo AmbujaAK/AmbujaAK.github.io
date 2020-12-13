@@ -99,6 +99,12 @@ class _CustomAppBarState extends State<CustomAppBar> {
             isButtonEnabled: _isButtonEnabled,
             onTap: () {
               print('blog clicked');
+              setState(() {
+                if (widget.onPage == 'blog') {
+                  _isButtonEnabled = true;
+                }
+                Navigator.pushNamed(context, 'blog');
+              });
             },
           ),
           CustomAppBarButton(
@@ -106,6 +112,12 @@ class _CustomAppBarState extends State<CustomAppBar> {
             isButtonEnabled: _isButtonEnabled,
             onTap: () {
               print('contact clicked');
+              setState(() {
+                if (widget.onPage == 'contact') {
+                  _isButtonEnabled = true;
+                }
+                Navigator.pushNamed(context, 'contact');
+              });
             },
           ),
         ],

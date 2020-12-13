@@ -9,14 +9,12 @@ class ProjectItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: onTap,
+    return ElevatedButton(
+      onPressed: onTap,
       child: Container(
-        height: 60.0,
-        margin: EdgeInsets.all(12.0),
         decoration: BoxDecoration(
-          color: color == null ? Colors.lightBlueAccent : color,
-          borderRadius: BorderRadius.circular(12.0),
+          color: color == null ? Colors.transparent : color,
+          borderRadius: BorderRadius.circular(2.0),
         ),
         child: Center(
           child: Text(

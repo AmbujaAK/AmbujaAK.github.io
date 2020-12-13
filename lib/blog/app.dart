@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:my_personal_website/appbar/custom_app_bar.dart';
 
-class AboutPage extends StatelessWidget {
-  static const String id = 'about';
+class Blog extends StatelessWidget {
+  static const String id = 'blog';
 
   @override
   Widget build(BuildContext context) {
