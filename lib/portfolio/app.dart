@@ -111,7 +111,8 @@ Widget bodyForAndroid(BuildContext context) {
       title: projectItemList.getProjectItemList[index]['app'],
       color: Colors.blueGrey[600],
       onTap: () async {
-        var url = '$kBaseUrl/${projectItemList.getProjectItemList[index]}';
+        var url =
+            '$kBaseUrl/${projectItemList.getProjectItemList[index]['app']}';
         print(url);
         if (await canLaunch(url)) {
           await launch(url);
@@ -138,7 +139,7 @@ Widget bodyForWeb(BuildContext context, String selected) {
         title: filterProjectItemList[index]['app'],
         // color: Colors.blueGrey[200],
         onTap: () async {
-          var url = '$kBaseUrl/${filterProjectItemList[index]}';
+          var url = '$kBaseUrl/${filterProjectItemList[index]['app']}';
           print(url);
           if (await canLaunch(url)) {
             await launch(url);

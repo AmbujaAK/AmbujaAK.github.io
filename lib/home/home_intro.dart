@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:my_personal_website/components/custom_button.dart';
+import 'package:my_personal_website/utils/constants.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class HomeIntro extends StatelessWidget {
   @override
@@ -21,16 +23,6 @@ class HomeIntro extends StatelessWidget {
             ),
             Stack(
               children: [
-                // Container(
-                //   child: Text(
-                //     'AMBUJAAK',
-                //     style: TextStyle(
-                //       fontSize: 80,
-                //       fontWeight: FontWeight.w900,
-                //       color: Colors.grey,
-                //     ),
-                //   ),
-                // ),
                 Container(
                   child: Text(
                     'I AM AMBUJ KUMAR',
@@ -58,8 +50,18 @@ class HomeIntro extends StatelessWidget {
                   CustomButton(
                     title: 'HIRE ME',
                   ),
-                  CustomButton(
-                    title: 'GET CV',
+                  GestureDetector(
+                    onTap: () async {
+                      var url = kResumeUrl;
+                      if (await canLaunch(url)) {
+                        await launch(url);
+                      } else {
+                        throw 'Could not launch $url';
+                      }
+                    },
+                    child: CustomButton(
+                      title: 'GET CV',
+                    ),
                   )
                 ],
               ),
