@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:my_personal_website/appbar/custom_app_bar.dart';
+import 'package:my_personal_website/blog/blog_item.dart';
 
 class Blog extends StatelessWidget {
   static const String id = 'blog';
@@ -12,19 +13,27 @@ class Blog extends StatelessWidget {
       ),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.start,
-        mainAxisSize: MainAxisSize.min,
         children: [
-          Flexible(
-            fit: FlexFit.loose,
-            child: Container(
-              child: Center(
-                child: Text(
-                  'coming soon ...',
-                  style: TextStyle(fontSize: 54, fontWeight: FontWeight.bold),
-                ),
-              ),
-            ),
+          Text(
+            'Month : 01-01-2020',
+            style: TextStyle(fontWeight: FontWeight.bold),
           ),
+          Flexible(child: BlogItem()),
+          Text(
+            'Month : 01-01-2020',
+            style: TextStyle(fontWeight: FontWeight.bold),
+          ),
+          Flexible(child: BlogItem()),
+          Text(
+            'Month : 01-01-2020',
+            style: TextStyle(fontWeight: FontWeight.bold),
+          ),
+          Flexible(child: BlogItem()),
+          Text(
+            'Month : 01-01-2020',
+            style: TextStyle(fontWeight: FontWeight.bold),
+          ),
+          Flexible(child: BlogItem()),
         ],
       ),
     );
