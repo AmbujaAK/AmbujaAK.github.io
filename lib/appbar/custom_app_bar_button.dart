@@ -20,12 +20,26 @@ class CustomAppBarButton extends StatefulWidget {
 class _CustomAppBarButtonState extends State<CustomAppBarButton> {
   @override
   Widget build(BuildContext context) {
-    return FlatButton(
+    Color getColor(Set<MaterialState> states) {
+      const Set<MaterialState> interactiveStates = <MaterialState>{
+        MaterialState.pressed,
+        MaterialState.hovered,
+        MaterialState.focused,
+      };
+      if (states.any(interactiveStates.contains)) {
+        return Colors.blue;
+      }
+      return Colors.black;
+    }
+
+    return TextButton(
       key: widget.key,
-      hoverColor: Colors.greenAccent,
-      disabledColor: Colors.blueGrey,
-      disabledTextColor: Colors.white,
-      color: widget.isButtonEnabled ? Colors.redAccent : Colors.transparent,
+      style: ButtonStyle(
+        padding: MaterialStateProperty.all(
+            EdgeInsets.symmetric(horizontal: 28, vertical: 8)),
+        foregroundColor: MaterialStateProperty.resolveWith(getColor),
+        // backgroundColor: MaterialStateProperty.resolveWith(getColor),
+      ),
       child: Text(
         widget.title,
         style: TextStyle(

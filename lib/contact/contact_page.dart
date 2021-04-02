@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:my_personal_website/appbar/custom_app_bar.dart';
 
-class Contact extends StatelessWidget {
+class ContactPage extends StatelessWidget {
   static const String id = 'contact';
 
   @override

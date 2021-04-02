@@ -4,14 +4,7 @@ import 'package:my_personal_website/home/home_body.dart';
 import 'package:my_personal_website/utils/Settings.dart';
 import 'package:provider/provider.dart';
 
-class HomePage extends StatefulWidget {
-  static const String id = 'home';
-
-  @override
-  _HomePageState createState() => _HomePageState();
-}
-
-class _HomePageState extends State<HomePage> {
+class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(

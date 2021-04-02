@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:my_personal_website/appbar/custom_app_bar.dart';
 import 'package:my_personal_website/portfolio/filter_button.dart';
-import 'package:my_personal_website/portfolio/filter_button_panel.dart';
 import 'package:my_personal_website/portfolio/project_item.dart';
 import 'package:my_personal_website/portfolio/project_item_list.dart';
 
