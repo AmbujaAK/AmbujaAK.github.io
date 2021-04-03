@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:my_personal_website/home/home_avatar.dart';
-import 'package:my_personal_website/home/home_intro.dart';
+import 'package:my_personal_website/screen/home/home_avatar.dart';
+import 'package:my_personal_website/screen/home/home_intro.dart';
 
 class HomeBody extends StatelessWidget {
   @override

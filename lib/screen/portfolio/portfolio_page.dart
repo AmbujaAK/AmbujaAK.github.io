@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:my_personal_website/appbar/custom_app_bar.dart';
-import 'package:my_personal_website/portfolio/filter_button.dart';
-import 'package:my_personal_website/portfolio/project_item.dart';
-import 'package:my_personal_website/portfolio/project_item_list.dart';
+import 'package:my_personal_website/shared/appbar/custom_app_bar.dart';
 
 import 'package:flutter/foundation.dart' show kIsWeb;
+import 'package:my_personal_website/screen/portfolio/filter_button.dart';
+import 'package:my_personal_website/screen/portfolio/project_item.dart';
+import 'package:my_personal_website/screen/portfolio/project_item_list.dart';
 import 'package:my_personal_website/utils/constants.dart';
 import 'dart:io' show Platform;
 

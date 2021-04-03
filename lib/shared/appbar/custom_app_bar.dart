@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:my_personal_website/appbar/custom_app_bar_button.dart';
-import 'package:my_personal_website/appbar/tabs.dart';
+import 'package:my_personal_website/shared/appbar/custom_app_bar_button.dart';
+import 'package:my_personal_website/shared/appbar/tabs.dart';
 import 'package:my_personal_website/providers/navigation_provider.dart';
 import 'package:provider/provider.dart';
 

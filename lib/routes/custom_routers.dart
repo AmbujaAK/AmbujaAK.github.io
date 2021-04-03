@@ -1,11 +1,11 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:my_personal_website/about/about_page.dart';
-import 'package:my_personal_website/blog/blog_page.dart';
-import 'package:my_personal_website/contact/contact_page.dart';
-import 'package:my_personal_website/home/home_page.dart';
-import 'package:my_personal_website/journey/journey_page.dart';
-import 'package:my_personal_website/portfolio/portfolio_page.dart';
+import 'package:my_personal_website/screen/about/about_page.dart';
+import 'package:my_personal_website/screen/blog/blog_page.dart';
+import 'package:my_personal_website/screen/contact/contact_page.dart';
+import 'package:my_personal_website/screen/home/home_page.dart';
+import 'package:my_personal_website/screen/journey/journey_page.dart';
+import 'package:my_personal_website/screen/portfolio/portfolio_page.dart';
 
 class CustomRouters {
   static Route<dynamic> generateRoute(RouteSettings settings) {

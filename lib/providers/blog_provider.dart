@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:my_personal_website/blog/blog_item.dart';
+import 'package:my_personal_website/screen/blog/blog_item.dart';
 
 class BlogProvider extends ChangeNotifier {
   bool _isExpanded = false;

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:my_personal_website/appbar/tabs.dart';
+import 'package:my_personal_website/shared/appbar/tabs.dart';
 
 class CustomAppBarButton extends StatefulWidget {
   final Key key;

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:my_personal_website/appbar/custom_app_bar.dart';
-import 'package:my_personal_website/home/home_body.dart';
+import 'package:my_personal_website/shared/appbar/custom_app_bar.dart';
 import 'package:my_personal_website/providers/navigation_provider.dart';
+import 'package:my_personal_website/screen/home/home_body.dart';
 import 'package:provider/provider.dart';
 
 class HomePage extends StatelessWidget {

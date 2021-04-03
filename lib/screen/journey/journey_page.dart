@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:my_personal_website/appbar/custom_app_bar.dart';
-import 'package:my_personal_website/journey/left_child.dart';
-import 'package:my_personal_website/journey/right_child.dart';
+import 'package:my_personal_website/shared/appbar/custom_app_bar.dart';
+import 'package:my_personal_website/screen/journey/left_child.dart';
+import 'package:my_personal_website/screen/journey/right_child.dart';
 import 'package:timeline_tile/timeline_tile.dart';
 
 class JourneyPage extends StatelessWidget {

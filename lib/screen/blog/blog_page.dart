@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:my_personal_website/appbar/custom_app_bar.dart';
+import 'package:my_personal_website/shared/appbar/custom_app_bar.dart';
 import 'package:intl/intl.dart';
-import 'package:my_personal_website/blog/blog_item.dart';
 import 'package:my_personal_website/providers/blog_provider.dart';
+import 'package:my_personal_website/screen/blog/blog_item.dart';
 import 'package:my_personal_website/shared/base_container.dart';
 import 'package:provider/provider.dart';
 

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:my_personal_website/appbar/custom_app_bar.dart';
+import 'package:my_personal_website/shared/appbar/custom_app_bar.dart';
 
 class AboutPage extends StatelessWidget {
   static const String id = 'about';
