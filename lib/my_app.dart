@@ -3,6 +3,7 @@ import 'package:my_personal_website/providers/blog_provider.dart';
 import 'package:my_personal_website/routes/custom_routers.dart';
 import 'package:my_personal_website/providers/navigation_provider.dart';
 import 'package:my_personal_website/screen/home/home_page.dart';
+import 'package:my_personal_website/screen/journey/journey_page.dart';
 import 'package:provider/provider.dart';
 
 class MyApp extends StatelessWidget {
@@ -19,7 +20,7 @@ class MyApp extends StatelessWidget {
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
-        home: HomePage(),
+        home: JourneyPage(),
         onGenerateRoute: CustomRouters.generateRoute,
       ),
     );
