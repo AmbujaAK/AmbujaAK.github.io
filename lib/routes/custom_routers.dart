@@ -4,6 +4,7 @@ import 'package:my_personal_website/about/about_page.dart';
 import 'package:my_personal_website/blog/blog_page.dart';
 import 'package:my_personal_website/contact/contact_page.dart';
 import 'package:my_personal_website/home/home_page.dart';
+import 'package:my_personal_website/journey/journey_page.dart';
 import 'package:my_personal_website/portfolio/portfolio_page.dart';
 
 class CustomRouters {
@@ -17,6 +18,8 @@ class CustomRouters {
         return MaterialPageRoute(builder: (_) => AboutPage());
       case 'portfolio':
         return MaterialPageRoute(builder: (_) => PortfolioPage());
+      case 'journey':
+        return MaterialPageRoute(builder: (_) => JourneyPage());
       case 'blog':
         return MaterialPageRoute(builder: (_) => BlogPage());
       case 'contact':

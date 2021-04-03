@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:my_personal_website/appbar/custom_app_bar_button.dart';
-import 'package:my_personal_website/utils/Settings.dart';
+import 'package:my_personal_website/appbar/tabs.dart';
+import 'package:my_personal_website/providers/navigation_provider.dart';
 import 'package:provider/provider.dart';
 
-class CustomAppBar extends StatefulWidget implements PreferredSizeWidget {
+class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   CustomAppBar({
     this.preferredSize,
     this.onPage,
@@ -15,29 +16,10 @@ class CustomAppBar extends StatefulWidget implements PreferredSizeWidget {
   final bool isButtonEnabled;
 
   @override
-  _CustomAppBarState createState() => _CustomAppBarState();
-}
-
-class _CustomAppBarState extends State<CustomAppBar> {
-  bool _isButtonEnabled = false;
-  int selectedButton = 0;
-
-  @override
-  void initState() {
-    super.initState();
-    _isButtonEnabled = false;
-  }
-
-  void _enableButton(String onPage) {
-    print(onPage);
-    Provider.of<Settings>(context, listen: false).setPage(onPage);
-  }
-
-  @override
   Widget build(BuildContext context) {
     return Container(
       margin: EdgeInsets.fromLTRB(32, 32, 32, 4),
-      child: Consumer<Settings>(
+      child: Consumer<NavigationProvider>(
         builder: (context, provider, child) {
           return AppBar(
             elevation: 0.0,
@@ -53,74 +35,19 @@ class _CustomAppBarState extends State<CustomAppBar> {
                 ),
               ),
             ),
-            actions: [
-              CustomAppBarButton(
-                title: 'home',
-                isButtonEnabled: _isButtonEnabled,
+            actions: getTabs.map((tab) {
+              var page = tab['title'];
+              var index = getTabs.indexOf(tab);
+              return CustomAppBarButton(
+                index: provider.getPageIndex,
+                title: page,
                 onTap: () {
-                  print('home clicked');
-                  setState(() {
-                    _enableButton('home');
-                    if (widget.onPage == 'home') {
-                      _isButtonEnabled = true;
-                    }
-                    Navigator.pushNamed(context, 'home');
-                  });
+                  provider.setPage(page);
+                  provider.setPageIndex(index);
+                  Navigator.of(context).pushReplacementNamed(page);
                 },
-              ),
-              CustomAppBarButton(
-                title: 'about',
-                isButtonEnabled: _isButtonEnabled,
-                onTap: () {
-                  print('about clicked');
-                  setState(() {
-                    if (widget.onPage == 'about') {
-                      _isButtonEnabled = true;
-                    }
-                    Navigator.pushNamed(context, 'about');
-                  });
-                },
-              ),
-              CustomAppBarButton(
-                title: 'portfolio',
-                isButtonEnabled: _isButtonEnabled,
-                onTap: () {
-                  print('portfolio clicked');
-                  setState(() {
-                    if (widget.onPage == 'portfolio') {
-                      _isButtonEnabled = true;
-                    }
-                    Navigator.pushNamed(context, 'portfolio');
-                  });
-                },
-              ),
-              CustomAppBarButton(
-                title: 'blog',
-                isButtonEnabled: _isButtonEnabled,
-                onTap: () {
-                  print('blog clicked');
-                  setState(() {
-                    if (widget.onPage == 'blog') {
-                      _isButtonEnabled = true;
-                    }
-                    Navigator.pushNamed(context, 'blog');
-                  });
-                },
-              ),
-              CustomAppBarButton(
-                title: 'contact',
-                isButtonEnabled: _isButtonEnabled,
-                onTap: () {
-                  print('contact clicked');
-                  setState(() {
-                    if (widget.onPage == 'contact') {
-                      _isButtonEnabled = true;
-                    }
-                    Navigator.pushNamed(context, 'contact');
-                  });
-                },
-              ),
-            ],
+              );
+            }).toList(),
           );
         },
       ),

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:my_personal_website/home/home_page.dart';
 import 'package:my_personal_website/providers/blog_provider.dart';
 import 'package:my_personal_website/routes/custom_routers.dart';
-import 'package:my_personal_website/utils/Settings.dart';
+import 'package:my_personal_website/providers/navigation_provider.dart';
 import 'package:provider/provider.dart';
 
 class MyApp extends StatelessWidget {
@@ -11,7 +11,7 @@ class MyApp extends StatelessWidget {
     return MultiProvider(
       providers: [
         ChangeNotifierProvider(
-          create: (_) => Settings(),
+          create: (_) => NavigationProvider(),
         ),
         ChangeNotifierProvider<BlogProvider>(
           create: (_) => BlogProvider(),
