@@ -5,7 +5,7 @@ class NavigationProvider with ChangeNotifier {
 
   String _onPage = 'home';
   bool _isEnabled = true;
-  int _pageIndex = 0;
+  int _pageIndex = 2;
 
   GlobalKey<ScaffoldState> get scaffoldkey => _scaffoldKey;
   String get getPage => _onPage;

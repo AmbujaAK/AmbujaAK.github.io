@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:my_personal_website/models/project_model.dart';
+import 'package:my_personal_website/screen/blog/component/categories.dart';
+import 'package:my_personal_website/screen/blog/component/search.dart';
 import 'package:my_personal_website/shared/appbar/custom_app_bar.dart';
 
 import 'package:flutter/foundation.dart' show kIsWeb;
@@ -6,9 +9,13 @@ import 'package:my_personal_website/screen/portfolio/filter_button.dart';
 import 'package:my_personal_website/screen/portfolio/project_item.dart';
 import 'package:my_personal_website/screen/portfolio/project_item_list.dart';
 import 'package:my_personal_website/config/app_config.dart';
+import 'package:my_personal_website/utils/constants.dart';
+import 'package:my_personal_website/utils/responsive.dart';
 import 'dart:io' show Platform;
 
 import 'package:url_launcher/url_launcher.dart';
+
+import 'filters.dart';
 
 class PortfolioPage extends StatefulWidget {
   static const String id = 'portfolio';
@@ -18,136 +25,88 @@ class PortfolioPage extends StatefulWidget {
 }
 
 class _PortfolioPageState extends State<PortfolioPage> {
-  List<String> filterNames = ['all', 'flutter', 'react', 'angular'];
-
-  String _selected;
-
-  @override
-  void initState() {
-    super.initState();
-    _selected = 'all';
-  }
-
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: CustomAppBar(
-        preferredSize: Size(double.infinity, 104.0),
-      ),
-      body: Column(
-        children: [
-          Expanded(
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: filterNames
-                  .map(
-                    (btn) => FilterButton(
-                      key: Key(btn),
-                      filterName: btn,
-                      isActive: _selected == btn ? true : false,
-                      onPressed: () {
-                        setState(() {
-                          switch (btn) {
-                            case 'flutter':
-                              setState(() {
-                                _selected = 'flutter';
-                              });
-                              break;
-                            case 'react':
-                              setState(() {
-                                _selected = 'react';
-                              });
-                              break;
-                            case 'angular':
-                              setState(() {
-                                _selected = 'angular';
-                              });
-                              break;
-                            default:
-                              setState(() {
-                                _selected = 'all';
-                              });
-                          }
-                          print('selected filter : $_selected');
-                        });
-                      },
-                    ),
-                  )
-                  .toList(),
-            ),
-            // FilterButtonPanel(filterName: filterNames, selected: _selected),
-          ),
-          Expanded(
-            child: Padding(
-              padding: const EdgeInsets.only(left: 48, right: 48),
-              child: getBody(context, _selected),
-            ),
-          ),
-        ],
-      ),
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.start,
+      children: [
+        Row(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            // Sidebar
+            if (!Responsive.isMobile(context))
+              Expanded(
+                child: Column(
+                  children: [
+                    Search(),
+                    SizedBox(height: kDefaultPadding),
+                    Filters(),
+                  ],
+                ),
+              ),
+            if (!Responsive.isMobile(context)) SizedBox(width: kDefaultPadding),
+            Expanded(
+              flex: 2,
+              child: Column(
+                children: List.generate(projects.length,
+                    (index) => ProjectItemCard(model: projects[index])),
+              ),
+            )
+          ],
+        )
+      ],
     );
   }
 }
 
-Widget getBody(BuildContext context, String selected) {
-  if (kIsWeb) {
-    return bodyForWeb(context, selected);
-  } else if (Platform.isAndroid) {
-    return bodyForAndroid(context);
-  } else if (Platform.isIOS) {
-    return bodyForAndroid(context);
-  } else {
-    return bodyForWeb(context, selected);
-  }
-}
+// Widget bodyForAndroid(BuildContext context) {
+//   final ProjectItemList projectItemList = ProjectItemList();
 
-Widget bodyForAndroid(BuildContext context) {
-  final ProjectItemList projectItemList = ProjectItemList();
-
-  return ListView.builder(
-    itemCount: projectItemList.getProjectItemList.length,
-    itemBuilder: (context, index) => ProjectItem(
-      title: projectItemList.getProjectItemList[index]['app'],
-      color: Colors.blueGrey[600],
-      onTap: () async {
-        var url =
-            '$kBaseUrl/${projectItemList.getProjectItemList[index]['app']}';
-        print(url);
-        if (await canLaunch(url)) {
-          await launch(url);
-        } else {
-          throw 'Could not launch $url';
-        }
-      },
-    ),
-  );
-}
+//   return ListView.builder(
+//     itemCount: projectItemList.getProjectItemList.length,
+//     itemBuilder: (context, index) => ProjectItemCard(
+//       model: ProjectModel(),
+//       title: projectItemList.getProjectItemList[index]['app'],
+//       color: Colors.blueGrey[600],
+//       onTap: () async {
+//         var url =
+//             '$kBaseUrl/${projectItemList.getProjectItemList[index]['app']}';
+//         print(url);
+//         if (await canLaunch(url)) {
+//           await launch(url);
+//         } else {
+//           throw 'Could not launch $url';
+//         }
+//       },
+//     ),
+//   );
+// }
 
 // envoked on Web browser
-Widget bodyForWeb(BuildContext context, String selected) {
-  final ProjectItemList projectItemList = ProjectItemList();
+// Widget bodyForWeb(BuildContext context, String selected) {
+//   final ProjectItemList projectItemList = ProjectItemList();
 
-  List<Map<String, String>> filterProjectItemList =
-      projectItemList.getFilteredProjectItemList(filter: selected);
+//   List<Map<String, String>> filterProjectItemList =
+//       projectItemList.getFilteredProjectItemList(filter: selected);
 
-  return GridView.builder(
-    itemCount: filterProjectItemList.length,
-    itemBuilder: (context, index) => Padding(
-      padding: const EdgeInsets.all(4.0),
-      child: ProjectItem(
-        title: filterProjectItemList[index]['app'],
-        // color: Colors.blueGrey[200],
-        onTap: () async {
-          var url = '$kBaseUrl/${filterProjectItemList[index]['app']}';
-          print(url);
-          if (await canLaunch(url)) {
-            await launch(url);
-          } else {
-            throw 'Could not launch $url';
-          }
-        },
-      ),
-    ),
-    gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 5),
-  );
-}
+//   return GridView.builder(
+//     itemCount: filterProjectItemList.length,
+//     itemBuilder: (context, index) => Padding(
+//       padding: const EdgeInsets.all(4.0),
+//       child: ProjectItem(
+//         title: filterProjectItemList[index]['app'],
+//         // color: Colors.blueGrey[200],
+//         onTap: () async {
+//           var url = '$kBaseUrl/${filterProjectItemList[index]['app']}';
+//           print(url);
+//           if (await canLaunch(url)) {
+//             await launch(url);
+//           } else {
+//             throw 'Could not launch $url';
+//           }
+//         },
+//       ),
+//     ),
+//     gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 5),
+//   );
+// }

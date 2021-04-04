@@ -34,7 +34,7 @@ class _FilterButtonPanelState extends State<FilterButtonPanel> {
           .map(
             (btn) => FilterButton(
               key: Key(btn),
-              filterName: btn,
+              title: btn,
               isActive: _selected == btn ? true : false,
               onPressed: () {
                 setState(() {
