@@ -18,3 +18,7 @@ List<String> get menuItems => [
       "Blog",
       "Contact",
     ];
+
+List<Map<String, dynamic>> get menuDetails => [
+      {"title": "Home"}
+    ];

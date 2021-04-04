@@ -14,10 +14,10 @@ class FilterButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return FlatButton(
+    return TextButton(
       child: Text(title),
       onPressed: onPressed,
-      color: isActive ? Colors.yellowAccent : Colors.transparent,
+      // color: isActive ? Colors.yellowAccent : Colors.transparent,
     );
   }
 }

@@ -3,14 +3,12 @@ import 'package:flutter/material.dart';
 class NavigationProvider with ChangeNotifier {
   GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
 
-  String _onPage = 'home';
   bool _isEnabled = true;
-  int _pageIndex = 2;
+  int _menuIndex = 2;
 
   GlobalKey<ScaffoldState> get scaffoldkey => _scaffoldKey;
-  String get getPage => _onPage;
   bool get isEnabled => _isEnabled;
-  int get getPageIndex => _pageIndex;
+  int get getPageIndex => _menuIndex;
 
   void openOrCloseDrawer() {
     if (_scaffoldKey.currentState.isDrawerOpen) {
@@ -20,24 +18,14 @@ class NavigationProvider with ChangeNotifier {
     }
   }
 
-  void setPage(String onPage) {
-    this._onPage = onPage;
-    notifyListeners();
-  }
-
   void setEnabled(bool value) {
     this._isEnabled = value;
     notifyListeners();
   }
 
-  void setPageIndex(int index) {
-    this._pageIndex = index;
-    notifyListeners();
-  }
-
   void setMenuIndex(int index) {
-    _pageIndex = index;
-    print('selected index : $_pageIndex');
+    _menuIndex = index;
+    print('selected index : $_menuIndex');
     notifyListeners();
   }
 }

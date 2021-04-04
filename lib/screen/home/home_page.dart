@@ -1,18 +1,39 @@
 import 'package:flutter/material.dart';
-import 'package:my_personal_website/shared/appbar/custom_app_bar.dart';
-import 'package:my_personal_website/providers/navigation_provider.dart';
-import 'package:my_personal_website/screen/home/home_body.dart';
-import 'package:provider/provider.dart';
+import 'package:my_personal_website/utils/constants.dart';
+import 'package:my_personal_website/utils/responsive.dart';
+
+import 'home_avatar.dart';
+import 'home_intro.dart';
 
 class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: CustomAppBar(
-        preferredSize: Size(double.infinity, 100.0),
-        onPage: Provider.of<NavigationProvider>(context, listen: false).getPage,
-      ),
-      body: HomeBody(),
+    return LayoutBuilder(
+      builder: (context, constraints) {
+        if (!Responsive.isMobile(context))
+          return Row(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Expanded(
+                child: HomeIntro(),
+              ),
+              if (!Responsive.isMobile(context))
+                SizedBox(width: kDefaultPadding),
+              Expanded(
+                child: HomeAvatar(),
+              ),
+            ],
+          );
+        else
+          return Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: [
+              HomeAvatar(),
+              // SizedBox(height: kDefaultPadding),
+              HomeIntro(),
+            ],
+          );
+      },
     );
   }
 }

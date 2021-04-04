@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:my_personal_website/shared/appbar/custom_app_bar.dart';
 
 class AboutPage extends StatelessWidget {
   static const String id = 'about';
@@ -7,9 +6,6 @@ class AboutPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: CustomAppBar(
-        preferredSize: Size(double.infinity, 100.0),
-      ),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.start,
         mainAxisSize: MainAxisSize.min,

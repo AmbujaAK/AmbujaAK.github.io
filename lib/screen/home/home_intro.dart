@@ -1,73 +1,72 @@
 import 'package:flutter/material.dart';
-import 'package:my_personal_website/components/custom_button.dart';
 import 'package:my_personal_website/config/app_config.dart';
-import 'package:url_launcher/url_launcher.dart';
+import 'package:my_personal_website/services/url_launcher.dart';
+import 'package:my_personal_website/shared/buttons/custom_button.dart';
+import 'package:my_personal_website/utils/constants.dart';
+import 'package:my_personal_website/utils/responsive.dart';
 
 class HomeIntro extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Expanded(
-      child: Container(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Container(
-              child: Text(
-                'HELLO',
-                style: TextStyle(
-                  fontSize: 48,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-            ),
-            Stack(
-              children: [
-                Container(
-                  child: Text(
-                    'I AM AMBUJ KUMAR',
-                    style: TextStyle(
-                      fontSize: 54,
-                      fontWeight: FontWeight.w900,
-                    ),
+    return Container(
+      height: Responsive.getMinDimen(context),
+      padding: EdgeInsets.all(kDefaultPadding),
+      // color: Colors.red,
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        children: [
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Container(
+                child: Text(
+                  'HELLO',
+                  style: TextStyle(
+                    fontSize: 48,
+                    fontWeight: FontWeight.bold,
                   ),
                 ),
-              ],
-            ),
-            Container(
-              child: Text(
-                'FULL STACK DEVELOPER',
-                style: TextStyle(
-                  fontSize: 24,
-                  fontWeight: FontWeight.bold,
+              ),
+              Container(
+                child: Text(
+                  'I AM AMBUJ KUMAR',
+                  style: TextStyle(
+                    fontSize: 54,
+                    fontWeight: FontWeight.w900,
+                  ),
                 ),
               ),
-            ),
-            Expanded(
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.start,
-                children: [
-                  CustomButton(
-                    title: 'HIRE ME',
+              Container(
+                child: Text(
+                  'FULL STACK DEVELOPER',
+                  style: TextStyle(
+                    fontSize: 24,
+                    fontWeight: FontWeight.bold,
                   ),
-                  GestureDetector(
-                    onTap: () async {
-                      var url = kResumeUrl;
-                      if (await canLaunch(url)) {
-                        await launch(url);
-                      } else {
-                        throw 'Could not launch $url';
-                      }
-                    },
-                    child: CustomButton(
-                      title: 'GET CV',
-                    ),
-                  )
-                ],
+                ),
               ),
-            )
-          ],
-        ),
+            ],
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: [
+              if (!Responsive.isMobile(context))
+                SizedBox(width: kDefaultPadding),
+              CustomButton(
+                title: 'HIRE ME',
+              ),
+              GestureDetector(
+                onTap: () async {
+                  var url = kResumeUrl;
+                  UrlLauncher.launchInBrowser(url);
+                },
+                child: CustomButton(
+                  title: 'GET CV',
+                ),
+              )
+            ],
+          )
+        ],
       ),
     );
   }

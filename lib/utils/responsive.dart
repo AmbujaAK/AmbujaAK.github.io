@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 
 class Responsive extends StatelessWidget {
@@ -23,6 +25,9 @@ class Responsive extends StatelessWidget {
 
   static bool isDesktop(BuildContext context) =>
       MediaQuery.of(context).size.width >= 900;
+
+  static double getMinDimen(BuildContext context) => min(
+      MediaQuery.of(context).size.height, MediaQuery.of(context).size.width);
 
   @override
   Widget build(BuildContext context) {

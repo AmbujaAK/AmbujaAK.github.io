@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:my_personal_website/shared/appbar/custom_app_bar.dart';
 import 'package:intl/intl.dart';
 import 'package:my_personal_website/providers/blog_provider.dart';
 import 'package:my_personal_website/shared/base_container.dart';
@@ -17,9 +16,6 @@ class BlogPage extends StatelessWidget {
     final String formatted = formatter.format(now);
     print(formatted);
     return Scaffold(
-      appBar: CustomAppBar(
-        preferredSize: Size(double.infinity, 100.0),
-      ),
       body: SingleChildScrollView(
         child: Consumer<BlogProvider>(
           builder: (context, provider, child) {

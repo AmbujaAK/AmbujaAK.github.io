@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:my_personal_website/providers/navigation_provider.dart';
 import 'package:my_personal_website/screen/blog/blog_screen.dart';
+import 'package:my_personal_website/screen/home/home_page.dart';
 import 'package:my_personal_website/screen/journey/journey_page.dart';
 import 'package:my_personal_website/screen/portfolio/portfolio_page.dart';
 import 'package:my_personal_website/utils/constants.dart';
@@ -19,10 +20,10 @@ class MainScreen extends StatelessWidget {
           child: Column(
             children: [
               Header(
-                needHeader: false,
-                pageTitle: "Welcome to Our Blog",
+                needHeader: state.getPageIndex == 0,
+                pageTitle: "Welcome to My Personal website",
                 pageDescrption:
-                    "Stay updated with the newest design and development stories, case studies, \nand insights shared by DesignDK Team.",
+                    "Stay updated with the newest design and development stories, case studies, \nand insights shared by AmbujaAK.",
               ),
               Container(
                 padding: EdgeInsets.all(kDefaultPadding),
@@ -30,7 +31,7 @@ class MainScreen extends StatelessWidget {
                 child: SafeArea(child: LayoutBuilder(
                   builder: (context, constraints) {
                     if (state.getPageIndex == 0)
-                      return BlogScreen();
+                      return HomePage();
                     else if (state.getPageIndex == 1) {
                       return Container(
                         height: 400,

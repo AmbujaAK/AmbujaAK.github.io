@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:my_personal_website/providers/navigation_provider.dart';
 import 'package:my_personal_website/utils/constants.dart';
 import 'package:my_personal_website/utils/responsive.dart';
+import 'package:provider/provider.dart';
 
 import 'static_app_bar.dart';
 
@@ -32,10 +34,10 @@ class Header extends StatelessWidget {
               child: Column(
                 children: [
                   StaticAppBar(),
-                  SizedBox(height: kDefaultPadding * 2),
                   needHeader
                       ? Column(
                           children: [
+                            SizedBox(height: kDefaultPadding * 2),
                             //! page title
                             Text(
                               pageTitle,
@@ -62,32 +64,37 @@ class Header extends StatelessWidget {
                             ),
 
                             //! learn more [LINK]
-                            FittedBox(
-                              child: TextButton(
-                                onPressed: () {},
-                                child: Row(
-                                  children: [
-                                    Text(
-                                      "Learn More",
-                                      style: TextStyle(
-                                        fontWeight: FontWeight.bold,
+                            Consumer<NavigationProvider>(
+                                builder: (_, state, __) {
+                              return FittedBox(
+                                child: TextButton(
+                                  onPressed: () {
+                                    state.setMenuIndex(1);
+                                  },
+                                  child: Row(
+                                    children: [
+                                      Text(
+                                        "Learn More",
+                                        style: TextStyle(
+                                          fontWeight: FontWeight.bold,
+                                          color: Colors.white,
+                                        ),
+                                      ),
+                                      SizedBox(width: kDefaultPadding / 2),
+                                      Icon(
+                                        Icons.arrow_forward,
                                         color: Colors.white,
                                       ),
-                                    ),
-                                    SizedBox(width: kDefaultPadding / 2),
-                                    Icon(
-                                      Icons.arrow_forward,
-                                      color: Colors.white,
-                                    ),
-                                  ],
+                                    ],
+                                  ),
                                 ),
-                              ),
-                            ),
+                              );
+                            }),
+                            if (Responsive.isDesktop(context))
+                              SizedBox(height: kDefaultPadding),
                           ],
                         )
                       : Container(),
-                  if (Responsive.isDesktop(context))
-                    SizedBox(height: kDefaultPadding),
                 ],
               ),
             )

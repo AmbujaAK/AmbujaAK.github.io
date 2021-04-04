@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:my_personal_website/config/app_config.dart';
 import 'package:my_personal_website/models/project_model.dart';
+import 'package:my_personal_website/services/url_launcher.dart';
 import 'package:my_personal_website/utils/constants.dart';
 import 'package:my_personal_website/utils/responsive.dart';
 
@@ -75,7 +77,10 @@ class ProjectItemCard extends StatelessWidget {
                 Row(
                   children: [
                     TextButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        var url = '$kBaseUrl/' + '${model.path}';
+                        UrlLauncher.launchInBrowser(url);
+                      },
                       child: Container(
                         padding: EdgeInsets.only(bottom: kDefaultPadding / 4),
                         decoration: BoxDecoration(

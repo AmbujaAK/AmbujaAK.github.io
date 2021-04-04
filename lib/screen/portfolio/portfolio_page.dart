@@ -1,19 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:my_personal_website/models/project_model.dart';
-import 'package:my_personal_website/screen/blog/component/categories.dart';
+import 'package:my_personal_website/providers/portfolio_provider.dart';
 import 'package:my_personal_website/screen/blog/component/search.dart';
-import 'package:my_personal_website/shared/appbar/custom_app_bar.dart';
 
-import 'package:flutter/foundation.dart' show kIsWeb;
-import 'package:my_personal_website/screen/portfolio/filter_button.dart';
 import 'package:my_personal_website/screen/portfolio/project_item.dart';
-import 'package:my_personal_website/screen/portfolio/project_item_list.dart';
-import 'package:my_personal_website/config/app_config.dart';
 import 'package:my_personal_website/utils/constants.dart';
 import 'package:my_personal_website/utils/responsive.dart';
-import 'dart:io' show Platform;
-
-import 'package:url_launcher/url_launcher.dart';
+import 'package:provider/provider.dart';
 
 import 'filters.dart';
 
@@ -27,34 +19,44 @@ class PortfolioPage extends StatefulWidget {
 class _PortfolioPageState extends State<PortfolioPage> {
   @override
   Widget build(BuildContext context) {
-    return Column(
-      mainAxisAlignment: MainAxisAlignment.start,
-      children: [
-        Row(
-          crossAxisAlignment: CrossAxisAlignment.start,
+    return ChangeNotifierProvider(
+      create: (_) => PortfolioProvider(),
+      child: Consumer<PortfolioProvider>(
+        builder: (_, state, __) => Column(
+          mainAxisAlignment: MainAxisAlignment.start,
           children: [
-            // Sidebar
-            if (!Responsive.isMobile(context))
-              Expanded(
-                child: Column(
-                  children: [
-                    Search(),
-                    SizedBox(height: kDefaultPadding),
-                    Filters(),
-                  ],
-                ),
-              ),
-            if (!Responsive.isMobile(context)) SizedBox(width: kDefaultPadding),
-            Expanded(
-              flex: 2,
-              child: Column(
-                children: List.generate(projects.length,
-                    (index) => ProjectItemCard(model: projects[index])),
-              ),
+            Row(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                // Sidebar
+                if (!Responsive.isMobile(context))
+                  Expanded(
+                    child: Column(
+                      children: [
+                        Search(),
+                        SizedBox(height: kDefaultPadding),
+                        Filters(provider: state),
+                      ],
+                    ),
+                  ),
+                if (!Responsive.isMobile(context))
+                  SizedBox(width: kDefaultPadding),
+                Expanded(
+                  flex: 2,
+                  child: Column(
+                    children: List.generate(
+                      state.filteredProjects(state.getSelected).length,
+                      (index) => ProjectItemCard(
+                          model:
+                              state.filteredProjects(state.getSelected)[index]),
+                    ),
+                  ),
+                )
+              ],
             )
           ],
-        )
-      ],
+        ),
+      ),
     );
   }
 }
