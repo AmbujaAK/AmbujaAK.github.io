@@ -2,9 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:my_personal_website/shared/appbar/custom_app_bar.dart';
 import 'package:intl/intl.dart';
 import 'package:my_personal_website/providers/blog_provider.dart';
-import 'package:my_personal_website/screen/blog/blog_item.dart';
 import 'package:my_personal_website/shared/base_container.dart';
 import 'package:provider/provider.dart';
+
+import 'components/blog_item.dart';
 
 class BlogPage extends StatelessWidget {
   static const String id = 'blog';

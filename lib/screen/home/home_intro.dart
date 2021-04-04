@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:my_personal_website/components/custom_button.dart';
-import 'package:my_personal_website/utils/constants.dart';
+import 'package:my_personal_website/config/app_config.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class HomeIntro extends StatelessWidget {

@@ -5,7 +5,7 @@ class RightChild extends StatelessWidget {
   Widget build(BuildContext context) {
     return ConstrainedBox(
       constraints: BoxConstraints(minHeight: 120),
-      child: Container(color: Colors.greenAccent),
+      child: Container(color: Colors.black54),
     );
   }
 }

@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:my_personal_website/providers/blog_provider.dart';
-import 'package:my_personal_website/screen/blog/blog_item_content.dart';
-import 'package:my_personal_website/screen/blog/blog_item_header.dart';
 import 'package:my_personal_website/styles.dart';
 import 'package:provider/provider.dart';
+
+import 'blog_item_content.dart';
+import 'blog_item_header.dart';
 
 class BlogItem extends StatelessWidget {
   @override

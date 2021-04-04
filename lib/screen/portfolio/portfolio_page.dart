@@ -5,7 +5,7 @@ import 'package:flutter/foundation.dart' show kIsWeb;
 import 'package:my_personal_website/screen/portfolio/filter_button.dart';
 import 'package:my_personal_website/screen/portfolio/project_item.dart';
 import 'package:my_personal_website/screen/portfolio/project_item_list.dart';
-import 'package:my_personal_website/utils/constants.dart';
+import 'package:my_personal_website/config/app_config.dart';
 import 'dart:io' show Platform;
 
 import 'package:url_launcher/url_launcher.dart';
