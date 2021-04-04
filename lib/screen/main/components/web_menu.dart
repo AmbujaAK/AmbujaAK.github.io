@@ -1,24 +1,25 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import 'package:my_personal_website/controllers/MenuController.dart';
+import 'package:my_personal_website/providers/navigation_provider.dart';
+import 'package:my_personal_website/shared/appbar/tabs.dart';
 import 'package:my_personal_website/utils/constants.dart';
+import 'package:provider/provider.dart';
 
 class WebMenu extends StatelessWidget {
-  final MenuController _controller = Get.put(MenuController());
-
   @override
   Widget build(BuildContext context) {
-    return Obx(
-      () => Row(
-        children: List.generate(
-          _controller.menuItems.length,
-          (index) => WebMenuItem(
-            text: _controller.menuItems[index],
-            isActive: index == _controller.selectedIndex,
-            press: () => _controller.setMenuIndex(index),
+    return Consumer<NavigationProvider>(
+      builder: (_, state, __) {
+        return Row(
+          children: List.generate(
+            menuItems.length,
+            (index) => WebMenuItem(
+              text: menuItems[index],
+              isActive: index == state.getPageIndex,
+              press: () => state.setMenuIndex(index),
+            ),
           ),
-        ),
-      ),
+        );
+      },
     );
   }
 }

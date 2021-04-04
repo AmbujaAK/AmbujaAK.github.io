@@ -1,15 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:get/get.dart';
-import 'package:my_personal_website/controllers/MenuController.dart';
 import 'package:my_personal_website/screen/main/components/socal.dart';
 import 'package:my_personal_website/screen/main/components/web_menu.dart';
 import 'package:my_personal_website/utils/constants.dart';
 import 'package:my_personal_website/utils/responsive.dart';
+import 'package:provider/provider.dart';
 
 class Header extends StatelessWidget {
-  final MenuController _controller = Get.put(MenuController());
-
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -26,15 +23,17 @@ class Header extends StatelessWidget {
                   Row(
                     children: [
                       if (!Responsive.isDesktop(context))
-                        IconButton(
-                          icon: Icon(
-                            Icons.menu,
-                            color: Colors.white,
-                          ),
-                          onPressed: () {
-                            _controller.openOrCloseDrawer();
-                          },
-                        ),
+                        Consumer(builder: (_, state, __) {
+                          return IconButton(
+                            icon: Icon(
+                              Icons.menu,
+                              color: Colors.white,
+                            ),
+                            onPressed: () {
+                              state.openOrCloseDrawer();
+                            },
+                          );
+                        }),
                       SvgPicture.asset("assets/icons/logo.svg"),
                       Spacer(),
                       if (Responsive.isDesktop(context)) WebMenu(),

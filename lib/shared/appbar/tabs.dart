@@ -8,3 +8,13 @@ const List<Map<String, dynamic>> _tabs = [
 ];
 
 List<Map<String, dynamic>> get getTabs => _tabs;
+
+List<String> get menuItems => [
+      "Home",
+      "About Us",
+      "Portfolio",
+      "Journey",
+      "Careers",
+      "Blog",
+      "Contact",
+    ];

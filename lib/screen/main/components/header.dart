@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import 'package:my_personal_website/controllers/MenuController.dart';
+import 'package:my_personal_website/providers/navigation_provider.dart';
 import 'package:my_personal_website/utils/constants.dart';
 import 'package:my_personal_website/utils/responsive.dart';
+import 'package:provider/provider.dart';
 import 'ambuja_ak_logo.dart';
 import 'socal.dart';
 import 'web_menu.dart';
@@ -18,8 +18,6 @@ class Header extends StatelessWidget {
     this.pageDescrption,
     this.press,
   }) : super(key: key);
-
-  final MenuController _controller = Get.put(MenuController());
 
   @override
   Widget build(BuildContext context) {
@@ -37,15 +35,17 @@ class Header extends StatelessWidget {
                   Row(
                     children: [
                       if (!Responsive.isDesktop(context))
-                        IconButton(
-                          icon: Icon(
-                            Icons.menu,
-                            color: Colors.white,
-                          ),
-                          onPressed: () {
-                            _controller.openOrCloseDrawer();
-                          },
-                        ),
+                        Consumer<NavigationProvider>(builder: (_, state, __) {
+                          return IconButton(
+                            icon: Icon(
+                              Icons.menu,
+                              color: Colors.white,
+                            ),
+                            onPressed: () {
+                              state.openOrCloseDrawer();
+                            },
+                          );
+                        }),
                       AmbujaAkLogo(),
                       Spacer(),
                       if (Responsive.isDesktop(context)) WebMenu(),

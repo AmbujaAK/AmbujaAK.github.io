@@ -1,20 +1,19 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import 'package:my_personal_website/controllers/MenuController.dart';
+import 'package:my_personal_website/providers/navigation_provider.dart';
+import 'package:my_personal_website/shared/appbar/tabs.dart';
 import 'package:my_personal_website/utils/constants.dart';
+import 'package:provider/provider.dart';
 
 import 'ambuja_ak_logo.dart';
 
 class SideMenu extends StatelessWidget {
-  final MenuController _controller = Get.put(MenuController());
-
   @override
   Widget build(BuildContext context) {
     return Drawer(
       child: Container(
         color: kDarkBlackColor,
-        child: Obx(
-          () => ListView(
+        child: Consumer<NavigationProvider>(builder: (_, state, __) {
+          return ListView(
             children: [
               DrawerHeader(
                 child: Padding(
@@ -25,18 +24,18 @@ class SideMenu extends StatelessWidget {
                 ),
               ),
               ...List.generate(
-                _controller.menuItems.length,
+                menuItems.length,
                 (index) => DrawerItem(
-                  isActive: index == _controller.selectedIndex,
-                  title: _controller.menuItems[index],
+                  isActive: index == state.getPageIndex,
+                  title: menuItems[index],
                   press: () {
-                    _controller.setMenuIndex(index);
+                    state.setMenuIndex(index);
                   },
                 ),
               ),
             ],
-          ),
-        ),
+          );
+        }),
       ),
     );
   }

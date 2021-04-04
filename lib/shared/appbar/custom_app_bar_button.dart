@@ -4,7 +4,7 @@ import 'package:my_personal_website/shared/appbar/tabs.dart';
 class CustomAppBarButton extends StatefulWidget {
   final Key key;
   final String title;
-  final Function onTap;
+  final VoidCallback onTap;
   final int index;
 
   CustomAppBarButton({
