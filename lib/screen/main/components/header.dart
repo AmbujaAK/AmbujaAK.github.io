@@ -10,14 +10,16 @@ class Header extends StatelessWidget {
   final String pageTitle;
   final String pageDescrption;
   final VoidCallback press;
-  final bool needHeader;
+  final bool header;
+  final bool hasMore;
 
   Header({
     Key key,
     this.pageTitle,
     this.pageDescrption,
     this.press,
-    this.needHeader,
+    this.header,
+    this.hasMore,
   }) : super(key: key);
 
   @override
@@ -34,7 +36,7 @@ class Header extends StatelessWidget {
               child: Column(
                 children: [
                   StaticAppBar(),
-                  needHeader
+                  header
                       ? Column(
                           children: [
                             SizedBox(height: kDefaultPadding * 2),
@@ -64,32 +66,35 @@ class Header extends StatelessWidget {
                             ),
 
                             //! learn more [LINK]
-                            Consumer<NavigationProvider>(
-                                builder: (_, state, __) {
-                              return FittedBox(
-                                child: TextButton(
-                                  onPressed: () {
-                                    state.setMenuIndex(1);
-                                  },
-                                  child: Row(
-                                    children: [
-                                      Text(
-                                        "Learn More",
-                                        style: TextStyle(
-                                          fontWeight: FontWeight.bold,
-                                          color: Colors.white,
+                            hasMore
+                                ? Consumer<NavigationProvider>(
+                                    builder: (_, state, __) {
+                                    return FittedBox(
+                                      child: TextButton(
+                                        onPressed: () {
+                                          state.setMenuIndex(1);
+                                        },
+                                        child: Row(
+                                          children: [
+                                            Text(
+                                              "Learn More",
+                                              style: TextStyle(
+                                                fontWeight: FontWeight.bold,
+                                                color: Colors.white,
+                                              ),
+                                            ),
+                                            SizedBox(
+                                                width: kDefaultPadding / 2),
+                                            Icon(
+                                              Icons.arrow_forward,
+                                              color: Colors.white,
+                                            ),
+                                          ],
                                         ),
                                       ),
-                                      SizedBox(width: kDefaultPadding / 2),
-                                      Icon(
-                                        Icons.arrow_forward,
-                                        color: Colors.white,
-                                      ),
-                                    ],
-                                  ),
-                                ),
-                              );
-                            }),
+                                    );
+                                  })
+                                : Container(),
                             if (Responsive.isDesktop(context))
                               SizedBox(height: kDefaultPadding),
                           ],

@@ -11,9 +11,9 @@ class WebMenu extends StatelessWidget {
       builder: (_, state, __) {
         return Row(
           children: List.generate(
-            menuItems.length,
+            state.getMenuItems.length,
             (index) => WebMenuItem(
-              text: menuItems[index],
+              text: state.getMenuItems[index]['page'],
               isActive: index == state.getPageIndex,
               press: () => state.setMenuIndex(index),
             ),

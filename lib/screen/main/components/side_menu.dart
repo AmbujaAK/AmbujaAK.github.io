@@ -24,10 +24,10 @@ class SideMenu extends StatelessWidget {
                 ),
               ),
               ...List.generate(
-                menuItems.length,
+                state.getMenuItems.length,
                 (index) => DrawerItem(
                   isActive: index == state.getPageIndex,
-                  title: menuItems[index],
+                  title: state.getMenuItems[index]['page'],
                   press: () {
                     state.setMenuIndex(index);
                   },
