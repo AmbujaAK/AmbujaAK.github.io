@@ -52,8 +52,14 @@ class HomeIntro extends StatelessWidget {
             children: [
               if (!Responsive.isMobile(context))
                 SizedBox(width: kDefaultPadding),
-              CustomButton(
-                title: 'HIRE ME',
+              GestureDetector(
+                onTap: () async {
+                  var url = kHireMe;
+                  UrlLauncher.launchInBrowser(url);
+                },
+                child: CustomButton(
+                  title: 'HIRE ME',
+                ),
               ),
               GestureDetector(
                 onTap: () async {

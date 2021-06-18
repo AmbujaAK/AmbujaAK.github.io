@@ -6,7 +6,7 @@ import 'package:provider/provider.dart';
 
 import 'static_app_bar.dart';
 
-class Header extends StatelessWidget {
+class Header extends StatelessWidget implements PreferredSizeWidget {
   final String pageTitle;
   final String pageDescrption;
   final VoidCallback press;
@@ -108,4 +108,7 @@ class Header extends StatelessWidget {
       ),
     );
   }
+
+  @override
+  Size get preferredSize => throw UnimplementedError();
 }

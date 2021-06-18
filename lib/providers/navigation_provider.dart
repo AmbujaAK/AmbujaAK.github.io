@@ -25,13 +25,13 @@ class NavigationProvider with ChangeNotifier {
       'header': false,
       'link': '',
     },
-    {
-      'page': 'Journey',
-      'pageTitle': '',
-      'pageDescription': '',
-      'header': false,
-      'link': '',
-    },
+    // {
+    //   'page': 'Journey',
+    //   'pageTitle': '',
+    //   'pageDescription': '',
+    //   'header': false,
+    //   'link': '',
+    // },
     {
       'page': 'Blog',
       'pageTitle': '',
@@ -39,17 +39,17 @@ class NavigationProvider with ChangeNotifier {
       'header': false,
       'link': '',
     },
-    {
-      'page': 'Contact',
-      'pageTitle': 'Contact Me',
-      'pageDescription': 'NAME  |  CONTACT ME',
-      'header': true,
-      'link': '',
-    }
+    // {
+    //   'page': 'Contact',
+    //   'pageTitle': 'Contact Me',
+    //   'pageDescription': 'NAME  |  CONTACT ME',
+    //   'header': true,
+    //   'link': '',
+    // }
   ];
 
   bool _isEnabled = true;
-  int _menuIndex = 5;
+  int _menuIndex = 0;
 
   GlobalKey<ScaffoldState> get scaffoldkey => _scaffoldKey;
   bool get isEnabled => _isEnabled;

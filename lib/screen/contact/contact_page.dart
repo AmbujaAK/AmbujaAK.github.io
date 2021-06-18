@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:my_personal_website/utils/constants.dart';
-import 'package:my_personal_website/utils/responsive.dart';
 
 class ContactPage extends StatelessWidget {
   @override
@@ -16,7 +15,7 @@ class ContactPage extends StatelessWidget {
         child: Column(
           children: [
             Container(
-              height: 100,
+              height: 10,
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [

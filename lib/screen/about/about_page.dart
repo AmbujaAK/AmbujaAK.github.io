@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:my_personal_website/screen/blog/component/sidebar_container.dart';
 import 'package:my_personal_website/utils/constants.dart';
 
 class AboutPage extends StatelessWidget {

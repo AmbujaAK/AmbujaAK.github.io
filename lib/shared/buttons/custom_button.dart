@@ -27,14 +27,14 @@ class _CustomButtonState extends State<CustomButton> {
         decoration: BoxDecoration(
           color: Colors.blueAccent,
           borderRadius: BorderRadius.circular(4.0),
-          boxShadow: [
-            BoxShadow(
-              color: Colors.purple,
-              spreadRadius: 2,
-              blurRadius: 80,
-              offset: Offset(2, 4),
-            ),
-          ],
+          // boxShadow: [
+          //   BoxShadow(
+          //     color: Colors.purple,
+          //     spreadRadius: 2,
+          //     blurRadius: 80,
+          //     offset: Offset(2, 4),
+          //   ),
+          // ],
         ),
       ),
     );
