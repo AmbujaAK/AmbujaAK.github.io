@@ -3,38 +3,38 @@ const MANIFEST = 'flutter-app-manifest';
 const TEMP = 'flutter-temp-cache';
 const CACHE_NAME = 'flutter-app-cache';
 const RESOURCES = {
-  "assets/AssetManifest.json": "5ba23cb5b2aa171b4073f26c44a92ab3",
-"assets/assets/fonts/Raleway/Raleway-Bold.ttf": "7802d8b27fcb19893ce6b38c0789268e",
-"assets/assets/fonts/Raleway/Raleway-Medium.ttf": "2ec8557460d3a2cd7340b16ac84fce32",
-"assets/assets/fonts/Raleway/Raleway-Regular.ttf": "75b4247fdd3b97d0e3b8e07b115673c2",
-"assets/assets/fonts/Raleway/Raleway-SemiBold.ttf": "8a192102b50118c45033e53ce897f103",
-"assets/assets/icons/behance-alt.svg": "5c5cb1c76f9e70c3906f061365fdac19",
-"assets/assets/icons/feather_dribbble.svg": "89b806ce6cc9dea635b81d7dc2406352",
-"assets/assets/icons/feather_message-square.svg": "5194a360f12626cb541cc80f58c4f217",
-"assets/assets/icons/feather_search.svg": "9d58d567fd606a3fdf19583f8685523d",
-"assets/assets/icons/feather_share-2.svg": "2eadf3eff1fb945866235c94ec30915d",
-"assets/assets/icons/feather_thumbs-up.svg": "a066c16fa33209a18b5282c40da1cf78",
-"assets/assets/icons/feather_twitter.svg": "3a254ce88e725b0169c202752364535e",
-"assets/assets/icons/logo.svg": "c9931bc4e93cda3b203dae019b85688e",
-"assets/assets/images/0.png": "9764fc4eb9b8903140c321cb478401c3",
-"assets/assets/images/1.png": "a4db2dc609cd22aa297dc0d3159d71e0",
-"assets/assets/images/2.png": "1fdb7c800008fbb0a8f92e2a00574672",
-"assets/assets/images/ambuja.jpg": "d9e6b44901f6d98248974bb9d43ef194",
-"assets/assets/images/home-right.png": "50953027678f2e493ea34b63733f26cd",
-"assets/assets/images/recent_1.png": "f78101e229ed5405aadad3ba5dc83902",
-"assets/assets/images/recent_2.png": "a567a0e447c13f94acf9b1eec0923b55",
-"assets/FontManifest.json": "bf62cde7a3fa16514d18c3043623faf9",
-"assets/fonts/MaterialIcons-Regular.otf": "1288c9e28052e028aba623321f7826ac",
-"assets/NOTICES": "8dbe713c6448ed833dc90d1deb04c770",
-"assets/packages/cupertino_icons/assets/CupertinoIcons.ttf": "b14fcf3ee94e3ace300b192e9e7c8c5d",
+  "version.json": "9f4c1649ebd6c18f9a6e9fe0333cd841",
+"index.html": "9f262f803ca166f89762a3fa97f1033c",
+"/": "9f262f803ca166f89762a3fa97f1033c",
+"main.dart.js": "3c7a08954ae2e358ede4ca6618d48bc3",
 "favicon.png": "5dcef449791fa27946b3d35ad8803796",
 "icons/Icon-192.png": "ac9a721a12bbc803b44f645561ecb1e1",
 "icons/Icon-512.png": "96e752610906ba2a93c65f8abe1645f1",
-"index.html": "10cb25542a61e986c9074efe363cbb5d",
-"/": "10cb25542a61e986c9074efe363cbb5d",
-"main.dart.js": "268780fb9a1a816922c56ffd41f874fd",
 "manifest.json": "e5aaa4a5fa6f38e68aed54f70d84dba9",
-"version.json": "9f4c1649ebd6c18f9a6e9fe0333cd841"
+"assets/AssetManifest.json": "5ba23cb5b2aa171b4073f26c44a92ab3",
+"assets/NOTICES": "b5524c37b61a3be75d8f871de8fa192e",
+"assets/FontManifest.json": "bf62cde7a3fa16514d18c3043623faf9",
+"assets/packages/cupertino_icons/assets/CupertinoIcons.ttf": "b14fcf3ee94e3ace300b192e9e7c8c5d",
+"assets/fonts/MaterialIcons-Regular.otf": "4e6447691c9509f7acdbf8a931a85ca1",
+"assets/assets/images/home-right.png": "50953027678f2e493ea34b63733f26cd",
+"assets/assets/images/recent_2.png": "a567a0e447c13f94acf9b1eec0923b55",
+"assets/assets/images/recent_1.png": "f78101e229ed5405aadad3ba5dc83902",
+"assets/assets/images/ambuja.jpg": "d9e6b44901f6d98248974bb9d43ef194",
+"assets/assets/images/2.png": "1fdb7c800008fbb0a8f92e2a00574672",
+"assets/assets/images/1.png": "a4db2dc609cd22aa297dc0d3159d71e0",
+"assets/assets/images/0.png": "9764fc4eb9b8903140c321cb478401c3",
+"assets/assets/icons/feather_twitter.svg": "3a254ce88e725b0169c202752364535e",
+"assets/assets/icons/feather_search.svg": "9d58d567fd606a3fdf19583f8685523d",
+"assets/assets/icons/feather_thumbs-up.svg": "a066c16fa33209a18b5282c40da1cf78",
+"assets/assets/icons/feather_message-square.svg": "5194a360f12626cb541cc80f58c4f217",
+"assets/assets/icons/behance-alt.svg": "5c5cb1c76f9e70c3906f061365fdac19",
+"assets/assets/icons/feather_dribbble.svg": "89b806ce6cc9dea635b81d7dc2406352",
+"assets/assets/icons/feather_share-2.svg": "2eadf3eff1fb945866235c94ec30915d",
+"assets/assets/icons/logo.svg": "c9931bc4e93cda3b203dae019b85688e",
+"assets/assets/fonts/Raleway/Raleway-Medium.ttf": "2ec8557460d3a2cd7340b16ac84fce32",
+"assets/assets/fonts/Raleway/Raleway-SemiBold.ttf": "8a192102b50118c45033e53ce897f103",
+"assets/assets/fonts/Raleway/Raleway-Regular.ttf": "75b4247fdd3b97d0e3b8e07b115673c2",
+"assets/assets/fonts/Raleway/Raleway-Bold.ttf": "7802d8b27fcb19893ce6b38c0789268e"
 };
 
 // The application shell files that are downloaded before a service worker can
@@ -52,7 +52,7 @@ self.addEventListener("install", (event) => {
   return event.waitUntil(
     caches.open(TEMP).then((cache) => {
       return cache.addAll(
-        CORE.map((value) => new Request(value + '?revision=' + RESOURCES[value], {'cache': 'reload'})));
+        CORE.map((value) => new Request(value, {'cache': 'reload'})));
     })
   );
 });
