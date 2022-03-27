@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:my_personal_website/screen/about/about_page.dart';
 import 'package:my_personal_website/screen/blog/blog_page.dart';
